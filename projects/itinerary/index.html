@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary</title> 
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Use Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark blue-gray background */
+            color: #e5e7eb; /* Light gray text */
+        }
+        /* Glassmorphism effect for cards (from the first page) */
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5); /* Semi-transparent dark background */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom gradient for hero section (from the first page) */
+        .hero-gradient {
+            background: radial-gradient(circle at top, rgba(59, 130, 246, 0.15), transparent 70%);
+        }
+        /* Custom styles for video responsiveness, adapting from Bootstrap's ratio */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width = 9 / 16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/50 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-center items-center">
+            <div class="flex items-center">
+                <a href="../../index.html" class="flex justify-center items-center text-2xl font-bold text-white">
+                    <img src="../../asset/icon.png" width="50px" height="50px"/>RepoFlux
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <section id="home" class="min-h-screen flex items-center justify-center text-center px-6 pt-24 relative hero-gradient">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+                    Plan Your Trip with AI
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+                    An intelligent assistant to create personalized tourist itineraries in just a few clicks.
+                </p>
+                <a href="#how-it-works" class="bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+                    Discover More
+                </a>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">How it Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-6 rounded-xl text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                        <i class="fas fa-clipboard-list text-4xl text-blue-500 mb-4"></i> <h5 class="text-xl font-semibold text-white mb-2">1. Enter Data</h5>
+                        <p class="text-gray-400">Trip duration, group composition, means of transport, and cities you want to visit.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                        <i class="fas fa-brain text-4xl text-blue-500 mb-4"></i> <h5 class="text-xl font-semibold text-white mb-2">2. AI Processes the Itinerary</h5>
+                        <p class="text-gray-400">The system combines all your choices to create a logical, optimized, and interesting route.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                        <i class="fas fa-map-marked-alt text-4xl text-blue-500 mb-4"></i> <h5 class="text-xl font-semibold text-white mb-2">3. Receive Your Ideal Trip</h5>
+                        <p class="text-gray-400">Get a personalized day-by-day proposal, ready to follow or modify.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">See the platform in action</h2>
+                <p class="text-gray-400 mb-8">Discover how to plan a trip in a few simple steps thanks to AI.</p>
+                <div class="mx-auto" style="max-width: 720px;">
+                    <div class="video-container rounded-lg overflow-hidden shadow-xl">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 text-center">
+                        <img src="../../asset/itinerary/api.png" alt="Features chart" class="max-w-full h-auto rounded-lg shadow-xl">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Usage of HERE APIs</h3>
+                        <p class="text-gray-400 mb-4">
+                            This pie chart shows the usage of the main additions made to the platform,
+                            showcasing the use of APIs offered by HERE.com.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li><strong class="text-white">Autocomplete</strong>: quick real-time suggestions</li>
+                            <li><strong class="text-white">Intelligent Routing</strong>: optimized routes based on time</li>
+                            <li><strong class="text-white">Vector Maps</strong>: advanced and fast rendering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">AI Power Thanks to OpenAI APIs</h2>
+                        <p class="text-gray-400 mb-4">
+                            Our platform leverages **OpenAI** APIs to generate intelligent, coherent, and personalized tourist itineraries based on user preferences.
+                        </p>
+                        <ul class="text-gray-400 space-y-2">
+                            <li><span class="text-green-500 mr-2"><i class="fas fa-check-circle"></i></span> Natural language understanding</li>
+                            <li><span class="text-green-500 mr-2"><i class="fas fa-check-circle"></i></span> Intelligent stop optimization</li>
+                            <li><span class="text-green-500 mr-2"><i class="fas fa-check-circle"></i></span> Dynamic and adaptable responses</li>
+                        </ul>
+                        <p class="text-gray-400 mt-4">
+                            Thanks to **models like GPT-4**, we can offer a unique and interactive experience, simulating a real expert travel planner.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 text-center">
+                        <img src="../../asset/itinerary/openai.png" alt="OpenAI API" class="max-w-full h-auto rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 border-t border-gray-800 py-12">
+        <!-- Footer Content -->
+        <div class="container mx-auto px-6 text-center"> 
+            <h3 class="text-2xl font-bold text-white mb-4">Get In Touch</h3> 
+            <p class="text-gray-400 mb-8"> I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. </p> 
+            <div class="flex justify-center space-x-6 mb-8"> 
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                    <i class="fab fa-github"></i>
+                </a> 
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                    <i class="fab fa-youtube"></i>
+                </a> 
+                <a href="mailto:youremail@example.com" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                    <i class="fas fa-envelope"></i>
+                </a> 
+            </div> 
+            <p class="text-gray-500">&copy; <span id="date"></span> RepoFlux. All Rights Reserved.</p> </div>
+    </footer>
+</body>
+<script>
+    document.getElementById('date').textContent = new Date().getFullYear();
+</script>
+</html>
