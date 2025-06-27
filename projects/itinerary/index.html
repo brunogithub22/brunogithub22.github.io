@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../asset/itinerary/icon.ico">
     <style>
         /* Use Inter as the default font */
         body {
@@ -150,6 +151,27 @@
             </div>
         </section>
 
+
+        <section class="text-center py-12 bg-gray-800">
+    <h3 class="text-2xl text-white mb-4">Explore the Code</h3>
+    <button onclick="showDonationModal()" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+        Visit GitHub Repository
+    </button>
+</section>
+
+<!-- Donation Modal -->
+<div id="donationModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-800 text-white rounded-xl p-8 max-w-md w-full shadow-2xl">
+        <h2 class="text-2xl font-bold mb-4">Support the Project?</h2>
+        <p class="mb-6 text-gray-300">Would you like to donate to support further development before viewing the GitHub repository?</p>
+        <div class="flex flex-col sm:flex-row justify-end gap-4">
+            <button onclick="cancelDonation()" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg">Cancel</button>
+            <button onclick="skipDonation()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Skip Donation</button>
+            <button onclick="donateAndRedirect()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg">Donate & Continue</button>
+        </div>
+    </div>
+</div>
+
     </main>
 
     <!-- Footer -->
@@ -158,21 +180,45 @@
         <div class="container mx-auto px-6 text-center"> 
             <h3 class="text-2xl font-bold text-white mb-4">Get In Touch</h3> 
             <p class="text-gray-400 mb-8"> I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. </p> 
-            <div class="flex justify-center space-x-6 mb-8"> 
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
-                    <i class="fab fa-github"></i>
-                </a> 
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+            <div class="flex justify-center space-x-6 mb-4"> 
+                <a href="https://www.youtube.com/@RepoFlux" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
                     <i class="fab fa-youtube"></i>
                 </a> 
                 <a href="mailto:youremail@example.com" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
                     <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                    <i class="fas fa-coffee"></i>
                 </a> 
+            </div>
+            <div class="mb-4">
+                <i class="fas fa-phone mr-2 text-blue-500"></i>
+                <span>393 164 6264</span>
             </div> 
             <p class="text-gray-500">&copy; <span id="date"></span> RepoFlux. All Rights Reserved.</p> </div>
     </footer>
 </body>
 <script>
     document.getElementById('date').textContent = new Date().getFullYear();
+    const githubUrl = "https://github.com/your-repo"; // Replace with your actual repo
+    const paypalUrl = "https://www.paypal.me/yourname"; // Replace with your PayPal link
+
+    function showDonationModal() {
+        document.getElementById('donationModal').classList.remove('hidden');
+    }
+
+    function cancelDonation() {
+        document.getElementById('donationModal').classList.add('hidden');
+    }
+
+    function skipDonation() {
+        window.location.href = githubUrl;
+    }
+
+    function donateAndRedirect() {
+        window.open(paypalUrl, "_blank");
+        window.location.href = githubUrl;
+    }
+
 </script>
 </html>
