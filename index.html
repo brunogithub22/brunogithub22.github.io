@@ -117,13 +117,14 @@
                 <a href="https://www.youtube.com/@RepoFlux" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
                     <i class="fab fa-youtube"></i>
                 </a> 
-                <a href="mailto:youremail@example.com" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                <button onclick="copyEmail()" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl" title="Copy Email">
                     <i class="fas fa-envelope"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                </button>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=5YUPNZQ38CHEL" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
                     <i class="fas fa-coffee"></i>
                 </a> 
             </div> 
+            <p id="copy-msg" class="text-green-400 mt-2 hidden">Email copied to clipboard!</p>
             <div class="mb-4">
                 <i class="fas fa-phone mr-2 text-blue-500"></i> 
                 <span>393 164 6264</span>
@@ -133,6 +134,19 @@
 </body>
 <script>
     document.getElementById('date').textContent = new Date().getFullYear();
+    
+    function copyEmail() {
+        const email = "bruno.github.22@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const msg = document.getElementById('copy-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 2000); // hide after 2 seconds
+        }).catch(err => {
+            console.error("Failed to copy email: ", err);
+        });
+    }
 </script>
 
 </html>

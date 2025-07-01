@@ -99,7 +99,7 @@
                 <p class="text-gray-400 mb-8">Discover how to plan a trip in a few simple steps thanks to AI.</p>
                 <div class="mx-auto" style="max-width: 720px;">
                     <div class="video-container rounded-lg overflow-hidden shadow-xl">
-                        
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tegsb35MwfM?si=F26FOh2sIg4rqkmi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -153,24 +153,24 @@
 
 
         <section class="text-center py-12 bg-gray-800">
-    <h3 class="text-2xl text-white mb-4">Explore the Code</h3>
-    <button onclick="showDonationModal()" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
-        Visit GitHub Repository
-    </button>
-</section>
+            <h3 class="text-2xl text-white mb-4">Explore the Code</h3>
+            <button onclick="showDonationModal()" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+                Visit GitHub Repository
+            </button>
+        </section>
 
-<!-- Donation Modal -->
-<div id="donationModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
-    <div class="bg-gray-800 text-white rounded-xl p-8 max-w-md w-full shadow-2xl">
-        <h2 class="text-2xl font-bold mb-4">Support the Project?</h2>
-        <p class="mb-6 text-gray-300">Would you like to donate to support further development before viewing the GitHub repository?</p>
-        <div class="flex flex-col sm:flex-row justify-end gap-4">
-            <button onclick="cancelDonation()" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg">Cancel</button>
-            <button onclick="skipDonation()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Skip Donation</button>
-            <button onclick="donateAndRedirect()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg">Donate & Continue</button>
+        <!-- Donation Modal -->
+        <div id="donationModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+            <div class="bg-gray-800 text-white rounded-xl p-8 max-w-md w-full shadow-2xl">
+                <h2 class="text-2xl font-bold mb-4">Support the Project?</h2>
+                <p class="mb-6 text-gray-300">Would you like to donate to support further development before viewing the GitHub repository?</p>
+                <div class="flex flex-col sm:flex-row justify-end gap-4">
+                    <button onclick="cancelDonation()" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg">Cancel</button>
+                    <button onclick="skipDonation()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Skip Donation</button>
+                    <button onclick="donateAndRedirect()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg">Donate & Continue</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
     </main>
 
@@ -184,13 +184,14 @@
                 <a href="https://www.youtube.com/@RepoFlux" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
                     <i class="fab fa-youtube"></i>
                 </a> 
-                <a href="mailto:youremail@example.com" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                <button onclick="copyEmail()" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl" title="Copy Email">
                     <i class="fas fa-envelope"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                </button>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=5YUPNZQ38CHEL" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
                     <i class="fas fa-coffee"></i>
                 </a> 
             </div>
+            <p id="copy-msg" class="text-green-400 mt-2 hidden">Email copied to clipboard!</p>
             <div class="mb-4">
                 <i class="fas fa-phone mr-2 text-blue-500"></i>
                 <span>393 164 6264</span>
@@ -200,8 +201,8 @@
 </body>
 <script>
     document.getElementById('date').textContent = new Date().getFullYear();
-    const githubUrl = "https://github.com/your-repo"; // Replace with your actual repo
-    const paypalUrl = "https://www.paypal.me/yourname"; // Replace with your PayPal link
+    const githubUrl = "https://github.com/brunogithub22/itinerario"; // Replace with your actual repo
+    const paypalUrl = "https://www.paypal.com/donate/?hosted_button_id=5YUPNZQ38CHEL"; // Replace with your PayPal link
 
     function showDonationModal() {
         document.getElementById('donationModal').classList.remove('hidden');
@@ -212,12 +213,26 @@
     }
 
     function skipDonation() {
-        window.location.href = githubUrl;
+        window.open(githubUrl, "_blank");
+        document.getElementById('donationModal').classList.add('hidden');
     }
 
     function donateAndRedirect() {
         window.open(paypalUrl, "_blank");
         window.location.href = githubUrl;
+    }
+
+    function copyEmail() {
+        const email = "bruno.github.22@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const msg = document.getElementById('copy-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 2000); // hide after 2 seconds
+        }).catch(err => {
+            console.error("Failed to copy email: ", err);
+        });
     }
 
 </script>
