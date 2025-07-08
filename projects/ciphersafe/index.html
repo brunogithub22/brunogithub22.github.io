@@ -524,7 +524,12 @@
 
         function donateAndRedirect() {
             window.open(paypalUrl, "_blank");
-            window.location.href = githubUrl;
+            if(choice==="sd"){
+                githubUrl="https://github.com/brunogithub22/sd_content"
+            }else if(choice==="firmware"){
+                githubUrl="https://github.com/brunogithub22/ciphersafe"
+            }
+            document.getElementById('donationModal').classList.add('hidden');
         }
 
         function copyEmail() {

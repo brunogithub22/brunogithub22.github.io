@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultDesk</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../asset/vaultdesk/icon.ico">
+    <style>
+        /* Use Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark blue-gray background */
+            color: #e5e7eb; /* Light gray text */
+        }
+        /* Glassmorphism effect for cards (from the original page) */
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5); /* Semi-transparent dark background */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom gradient for hero section (from the original page) */
+        .hero-gradient {
+            background: radial-gradient(circle at top, rgba(59, 130, 246, 0.15), transparent 70%);
+        }
+        /* Custom styles for video responsiveness, adapting from Bootstrap's ratio (from the original page) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width = 9 / 16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/50 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-center items-center">
+            <div class="flex items-center">
+                <a href="../../index.html" class="flex justify-center items-center text-2xl font-bold text-white">
+                    <img src="../../asset/icon.png" width="50px" height="50px"/>RepoFlux
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-6 pt-24 relative hero-gradient">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+                    How Our Secure File App Works
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+                    Learn about the technology powering our secure file storage solution.
+                </p>
+                <a href="#overview" class="bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+                    Discover the Tech
+                </a>
+            </div>
+        </section>
+
+        <section id="overview" class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">Architecture & Technologies</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="glass-card p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-white mb-4"><i class="fab fa-python text-blue-500 mr-2"></i> Python: The Core</h3>
+                        <p class="text-gray-400 mb-4">
+                            Our application is built on Python, a versatile and powerful programming language. Python's readability and extensive libraries make it ideal for developing robust and maintainable software. It handles all the backend logic, including file operations, encryption processes, and user interface interactions.
+                        </p>
+                        <p class="text-gray-400">
+                            Python's cross-platform compatibility ensures that the application runs seamlessly on various operating systems, providing a consistent experience for all users.
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-white mb-4"><i class="fas fa-desktop text-blue-500 mr-2"></i> CustomTkinter: Intuitive UI</h3>
+                        <p class="text-gray-400 mb-4">
+                            For the graphical user interface (GUI), we utilize **CustomTkinter**. This library provides a modern, customizable, and visually appealing interface built on top of Tkinter, Python's standard GUI toolkit. CustomTkinter allows us to create a user-friendly experience with dark mode support and sleek widgets.
+                        </p>
+                        <p class="text-gray-400">
+                            The intuitive design ensures that managing your secure files is simple and efficient, even for users who are not tech-savvy.
+                        </p>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-xl shadow-lg mt-12 text-center">
+                    <h3 class="text-2xl font-semibold text-white mb-4"><i class="fas fa-lock text-blue-500 mr-2"></i> AES Protocol: Unbreakable Security</h3>
+                    <p class="text-gray-400 mb-4">
+                        At the heart of our security is the **Advanced Encryption Standard (AES)** protocol. AES is a symmetric block cipher recognized worldwide as one of the strongest and most reliable encryption algorithms available. It's used by governments and security organizations globally to protect top-secret information.
+                    </p>
+                    <p class="text-gray-400">
+                        When you store a file with our application, it is encrypted using **AES-256**, a 256-bit key length, which provides an exceptionally high level of security. This means your files are transformed into an unreadable format, making them impenetrable without the correct decryption key (your password).
+                    </p>
+                    <p class="text-gray-400">
+                        Each file is encrypted individually, and a robust key derivation function ensures that your password is securely converted into the encryption key, further bolstering protection against brute-force attacks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">The Secure File Storage Process</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-6 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                        <i class="fas fa-file-upload text-4xl text-blue-500 mb-4"></i>
+                        <h5 class="text-xl font-semibold text-white mb-2">1. File Selection</h5>
+                        <p class="text-gray-400">You select the files you wish to secure through the intuitive CustomTkinter interface.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                        <i class="fas fa-key text-4xl text-blue-500 mb-4"></i>
+                        <h5 class="text-xl font-semibold text-white mb-2">2. Encryption with AES</h5>
+                        <p class="text-gray-400">Python takes your chosen files and encrypts them using the AES-256 protocol, secured by your password.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                        <i class="fas fa-archive text-4xl text-blue-500 mb-4"></i>
+                        <h5 class="text-xl font-semibold text-white mb-2">3. Secure Archiving</h5>
+                        <p class="text-gray-400">The encrypted files are then stored securely within a protected archive, ready for retrieval.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out md:col-span-1 md:col-start-2">
+                        <i class="fas fa-download text-4xl text-blue-500 mb-4"></i>
+                        <h5 class="text-xl font-semibold text-white mb-2">4. Decryption & Retrieval</h5>
+                        <p class="text-gray-400">When needed, Python decrypts the files using your password, restoring them to their original state.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">See the platform in action</h2>
+                <p class="text-gray-400 mb-8">Discover how to plan a trip in a few simple steps thanks to AI.</p>
+                <div class="mx-auto" style="max-width: 720px;">
+                    <div class="video-container rounded-lg overflow-hidden shadow-xl">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/QG-QqJwNZw4?si=ab4Uw1GwOhB8BhcF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center py-12 bg-gray-800">
+            <h3 class="text-2xl text-white mb-4">Explore the Code</h3>
+            <button onclick="showDonationModal()" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+                Visit GitHub Repository
+            </button>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold text-white mb-4">Get In Touch</h3>
+            <p class="text-gray-400 mb-8"> I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. </p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.youtube.com/@RepoFlux" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <button onclick="copyEmail()" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl" title="Copy Email">
+                    <i class="fas fa-envelope"></i>
+                </button>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=5YUPNZQ38CHEL" class="text-gray-400 hover:text-blue-400 transition-colors text-3xl">
+                    <i class="fas fa-coffee"></i>
+                </a>
+            </div>
+            <p id="copy-msg" class="text-green-400 mt-2 hidden">Email copied to clipboard!</p>
+            <div class="mb-4">
+                <i class="fas fa-phone mr-2 text-blue-500"></i>
+                <span>393 164 6264</span>
+            </div>
+            <p class="text-gray-500">© <span id="date"></span> RepoFlux. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="donationModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-800 text-white rounded-xl p-8 max-w-md w-full shadow-2xl">
+            <h2 class="text-2xl font-bold mb-4">Support the Project?</h2>
+            <p class="mb-6 text-gray-300">Would you like to donate to support further development before viewing the GitHub repository?</p>
+            <div class="flex flex-col sm:flex-row justify-end gap-4">
+                <button onclick="cancelDonation()" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg">Cancel</button>
+                <button onclick="skipDonation()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Skip Donation</button>
+                <button onclick="donateAndRedirect()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg">Donate & Continue</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    document.getElementById('date').textContent = new Date().getFullYear();
+    const githubUrl = "https://github.com/brunogithub22/VaultDesk"; // Replace with your actual repo
+    const paypalUrl = "https://www.paypal.com/donate/?hosted_button_id=5YUPNZQ38CHEL"; // Replace with your PayPal link
+
+    function showDonationModal() {
+        document.getElementById('donationModal').classList.remove('hidden');
+    }
+
+    function cancelDonation() {
+        document.getElementById('donationModal').classList.add('hidden');
+    }
+
+    function skipDonation() {
+        window.open(githubUrl, "_blank");
+        document.getElementById('donationModal').classList.add('hidden');
+    }
+
+    function donateAndRedirect() {
+        window.open(paypalUrl, "_blank");
+        window.open(githubUrl, "_blank");
+        document.getElementById('donationModal').classList.add('hidden');
+    }
+
+    function copyEmail() {
+        const email = "bruno.github.22@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const msg = document.getElementById('copy-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 2000); // hide after 2 seconds
+        }).catch(err => {
+            console.error("Failed to copy email: ", err);
+        });
+    }
+
+</script>
+</html>

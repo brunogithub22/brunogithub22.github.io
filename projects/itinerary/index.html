@@ -219,7 +219,8 @@
 
     function donateAndRedirect() {
         window.open(paypalUrl, "_blank");
-        window.location.href = githubUrl;
+        window.open(githubUrl, "_blank");
+        document.getElementById('donationModal').classList.add('hidden');
     }
 
     function copyEmail() {
